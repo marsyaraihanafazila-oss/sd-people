@@ -25,4 +25,4 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction \
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD ["bash", "-lc", "a2dismod mpm_event mpm_worker 2>/dev/null || true; a2enmod mpm_prefork; apache2ctl -t; exec apache2-foreground"]
