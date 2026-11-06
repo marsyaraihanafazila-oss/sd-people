@@ -15,6 +15,7 @@ Route::resource('pegawai', PegawaiController::class)
 Route::post('/divisi', [PegawaiController::class, 'storeDivisi'])
     ->name('divisi.store');
 
+
 Route::get('/rekap', [RekapAbsensiController::class, 'index'])
     ->name('rekap.index');
 
@@ -23,3 +24,19 @@ Route::post('/rekap/import', [RekapAbsensiController::class, 'import'])
 
 Route::get('/rekap/export', [RekapAbsensiController::class, 'export'])
     ->name('rekap.export');
+
+// Edit data absensi
+Route::get('/rekap/{id}/edit', [RekapAbsensiController::class, 'edit'])
+    ->name('rekap.edit');
+
+// Simpan perubahan
+Route::put('/rekap/{id}', [RekapAbsensiController::class, 'update'])
+    ->name('rekap.update');
+
+// Hapus satu data
+Route::delete('/rekap/{id}', [RekapAbsensiController::class, 'destroy'])
+    ->name('rekap.destroy');
+
+// Hapus semua data sesuai filter
+Route::delete('/rekap-hapus-filter', [RekapAbsensiController::class, 'destroyFiltered'])
+    ->name('rekap.destroy-filter');
