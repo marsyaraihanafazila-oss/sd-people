@@ -51,7 +51,7 @@ class RekapAbsensiExport implements FromCollection, WithHeadings, WithMapping
         return [
             $rekap->id_pegawai,
             $rekap->nama_pegawai,
-            $rekap->tanggal?->format('Y-m-d'),
+            $rekap->tanggal?->format('d-m-Y'),
             $rekap->hari,
             $rekap->jam_masuk,
             $rekap->jam_pulang,
